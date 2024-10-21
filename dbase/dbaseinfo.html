@@ -82,7 +82,25 @@
         Esto es fundamental para la gestión de la granja, el seguimiento de la producción y la
         salud y, el manejo financiero.
     </p>
-    <h3>Campos</h3>
+    <h3>Campos de la tabla</h3>
+    <ul>
+        <li>
+            Id_Porcinos es crucial como identificador único, ya que permite gestionar y referenciar a
+            cada porcino de manera efectiva.
+        </li>
+        <li>
+            FechaIngreso es fundamental para rastrear el tiempo que un porcino ha estado en la granja,
+            lo que impacta en la planificación de su manejo y producción.
+        </li>
+        <li>
+            Peso es vital para evaluar la salud y el crecimiento del porcino, lo que influye en
+            decisiones sobre alimentación y manejo.
+        </li>
+        <li>
+            PrecioCompra y PrecioVenta son esenciales para la gestión financiera, ya que permiten
+            calcular la rentabilidad del negocio y asegurar que se mantengan márgenes de beneficio adecuados.
+        </li>
+    </ul>
 
     <h2>Tabla Vacunas</h2>
     <p>
@@ -90,6 +108,30 @@
         enfermedades y la salud general de los animales. La vacunación es un componente clave en la
         prevención de enfermedades.
     </p>
+    
+    <ul>
+        <h3>
+            Campos de la tabla
+        </h3>
+        <li>
+            Id_Vacunas es esencial como identificador único para cada registro de vacunación,
+            permitiendo una gestión efectiva de las vacunas administradas.
+        </li>
+        <li>
+            NombreVacuna es importante porque identifica el tipo de vacuna administrada, lo que
+            es fundamental para garantizar que los porcinos reciban la inmunización adecuada
+            contra enfermedades específicas.
+        </li>
+        <li>
+            FechaVacunacion es vital para registrar el momento de la vacunación, lo que ayuda 
+            a programar futuras dosis y a mantener un control sobre el estado de salud del porcino.
+        </li>
+        <h3>Relación con la tabla Porcinos</h3>
+        <li>
+            Id_Porcinos es crucial, ya que vincula cada vacunación a un porcino específico,
+            lo que facilita el seguimiento del historial de salud y vacunación de cada animal.
+        </li>
+    </ul>
 
     <h2>Tabla Diagnosticos</h2>
     <p>
@@ -97,6 +139,36 @@
         de la salud animal y la administración de tratamientos. Esta tabla permite identificar
         problemas de salud y su evolución.
     </p>
+    <ul>
+        <h3>
+            Campos de la tabla
+        </h3>
+        <li>
+            Id_Diagnostico es crucial como identificador único para cada diagnóstico, lo que permite
+            un seguimiento eficiente de los registros médicos.
+        </li>
+        <li>
+            Enfermedad es vital para documentar el problema de salud identificado, permitiendo el análisis
+             de patrones de enfermedades y la planificación de tratamientos.
+        </li>
+        <li>
+            FechaVacunacion es vital para registrar el momento de la vacunación, lo que ayuda
+            a programar futuras dosis y a mantener un control sobre el estado de salud del porcino.
+        </li>
+        <li>
+            FechaDiagnostico es fundamental para registrar el momento en que se realizó el diagnóstico, lo que
+            es crucial para el seguimiento de la evolución de la enfermedad y la efectividad de los tratamientos.
+        </li>
+        <h3>Relación con la tabla Porcinos y Veterinario</h3>
+        <li>
+            Id_Porcinos es esencial para vincular cada diagnóstico a un porcino específico, facilitando
+            el acceso al historial de salud de cada animal.
+        </li>
+        <li>
+            Id_Veterinario es importante para identificar al profesional que realizó el diagnóstico,
+            lo que ayuda a mantener la responsabilidad y la trazabilidad de la atención médica.
+        </li>
+    </ul>
 
     <h2>Tabla veterinario</h2>
     <p>
@@ -105,6 +177,20 @@
         la rendición de cuentas y la gestión de la atención médica.
         </p>
 
+        <ul>
+            <h3>
+                Campos de la tabla
+            </h3>
+            <li>
+                Id_Veterinario es esencial como identificador único para cada veterinario, lo que permite
+                gestionar su información de manera eficiente y asegurar que cada registro sea distintivo.
+            </li>
+            <li>
+                Los campos Nombre, Telefono, y Email son igualmente importantes, ya que permiten establecer
+                 una comunicación efectiva con el veterinario
+            </li>
+        </ul>
+
     <h2>Tabla HistorialMedico</h2>
     <p>
         Compila toda la información relacionada con el tratamiento de un porcino, incluidos los gastos
@@ -112,9 +198,217 @@
          de la eficacia de los tratamientos.
     </p>
 
+    <ul>
+        <h3>
+            Campos de la tabla
+        </h3>
+        <li>
+            Id_HistorialMedico es esencial como identificador único para cada registro de historial médico,
+            lo que permite un seguimiento claro y organizado de los tratamientos realizados.
+        </li>
+        <li>
+            Tratamiento es crucial para documentar las intervenciones realizadas, lo que es fundamental
+            para evaluar la eficacia de los tratamientos a lo largo del tiempo.
+        </li>
+        <li>
+            PeriodoTratamiento permite registrar la duración del tratamiento, lo que es importante para el
+            seguimiento de la salud del animal y el cumplimiento de los protocolos veterinarios.
+        </li>
+        <li>
+            GastoConsulta y GastoMedicamento son vitales para la gestión financiera, ya que permiten calcular
+             los costos asociados al tratamiento de cada porcino, ayudando a evaluar la rentabilidad y
+             sostenibilidad del manejo sanitario.
+        </li>
+        <h3>Relación con la tabla Diagnosticos</h3>
+        <li>
+            Id_Diagnostico vincula cada historial médico a un diagnóstico específico, facilitando el acceso
+            a la información sobre la salud del porcino y asegurando la coherencia en el tratamiento.
+        </li>
+    </ul>
+
 
     <h1>Funcionalidades de los Usuarios del subsistema</h1>
+
+    <h2>Estructura de la Base de Datos</h2>
+    <p>La base de datos ha sido diseñada con un enfoque en la normalización, lo que significa que cada tabla
+        representa una entidad única y sus atributos. Esto facilita la gestión de datos y permite que
+        los usuarios accedan a la información de forma estructurada y coherente.
+    </p>
+    <h2>
+        Funcionalidades del Dueño
+    </h2>
+    <p>El Dueño podrá gestionar la información de los porcinos de manera eficiente:</p>
+    <ol>
+    <li>Registrar y actualizar información de porcinos:</li>
+    <ul>
+        <li>
+            Al interactuar con la tabla Porcinos, el dueño puede agregar nuevos registros o modificar
+            existentes. Esto se puede implementar mediante formularios en una interfaz gráfica que
+            permita la entrada de datos de manera sencilla.
+        </li>
+        <li>
+            Cada vez que se registra o actualiza un porcino, se asegura que la información esté
+            disponible para otros usuarios, lo que facilita el seguimiento de la salud y el
+            manejo del animal.
+        </li>
+    </ul>
+    <li>
+        Registrar vacunaciones:
+    </li>
+    <ul>
+        <li>
+            La interacción con la tabla Vacunas permitirá al dueño ingresar datos sobre las vacunas
+            administradas. Esto no solo ayuda a mantener un control de salud, sino que también
+            asegura que la información esté actualizada y disponible para el veterinario.
+        </li>
+    </ul>
+    </ol>
+
+    <h2>
+        Funcionalidades del Médico Veterinario
+    </h2>
+    <p>El Médico Veterinario tendrá acceso a funcionalidades que le permitirán
+        realizar diagnósticos y tratamientos de manera efectiva:
+    </p>
+    <ol>
+    <li>Registrar diagnósticos:</li>
+    <ul>
+        <li>
+            Al utilizar la tabla Diagnosticos, el veterinario puede ingresar información
+            sobre la salud de cada porcino, lo que permite un seguimiento detallado de
+            las enfermedades. Esto se puede implementar mediante formularios que requieran
+            la entrada de datos específicos, como la enfermedad y la fecha del diagnóstico.
+        </li>
+        <li>
+            Este registro es esencial para mantener un historial médico completo,
+            lo que facilita la toma de decisiones en tratamientos futuros.
+        </li>
+    </ul>
+    <li>
+        Registrar tratamientos y gastos:
+    </li>
+    <ul>
+        <li>
+            La tabla HistorialMedico permitirá al veterinario documentar los tratamientos
+            realizados, sus periodos y los costos asociados. Esto es crucial para la gestión
+            financiera de la granja y para evaluar la eficacia de los tratamientos administrados.
+        </li>
+        <li>
+            Un sistema de gestión puede generar reportes sobre estos tratamientos, ayudando en
+            la planificación de recursos y en la evaluación del bienestar animal.
+
+        </li>
+    </ul>
+    <li>
+        Actualizar vacunaciones:
+    </li>
+    <ul>
+        <li>
+            El veterinario podrá modificar registros en la tabla Vacunas para reflejar cambios
+            en el estado de vacunación de los porcinos. Esto asegura que todos los registros
+            están actualizados y disponibles para futuros diagnósticos y tratamientos.
+        </li>
+    </ul>
+    </ol>
+
     <h1>Separación de Responsabilidades por Tabla</h1>
+    <li> Tabla Porcinos</li>
+    <ol>
+        <li>
+            Dueño:
+        </li>
+        <ul>
+            <li>
+                Registrar nuevo porcino: Ingresar información sobre el porcino, incluyendo
+                fecha de ingreso, peso, edad, raza, precio de compra y venta.
+            </li>
+            <li>
+                Actualizar información de porcino: Modificar datos existentes, como fecha
+                de egreso, fecha de deceso, peso y otros atributos relevantes.
+            </li>
+        </ul>
+    </ol>
+
+    <li>Tabla Vacunas</li>
+    <ol>
+        <li>
+            Dueño:
+        </li>
+        <ul>
+            <li>
+                Registrar vacunación: Agregar registros de vacunas administradas a los
+                porcinos, incluyendo nombre de la vacuna y fecha de vacunación.
+            </li>
+        </ul>
+    <li>
+        Médico Veterinario:
+    </li>
+        <ul>
+            <li>
+                Actualizar registro de vacunación: Modificar detalles de las vacunas 
+                administradas, como la fecha o el nombre de la vacuna, si es necesario.
+            </li>
+        </ul>
+    </ol>
+
+    <li> Tabla Diagnosticos</li>
+    <ol>
+        <li>
+            Médico Veterinario:
+        </li>
+        <ul>
+            <li>
+                Registrar un diagnóstico: Ingresar información sobre el diagnóstico de
+                un porcino, incluyendo la enfermedad, fecha del diagnóstico y el
+                veterinario responsable.
+            </li>
+            <li>
+                Actualizar diagnóstico: Modificar información existente relacionada con
+                diagnósticos previos, asegurando que la información esté actualizada.
+            </li>
+        </ul>
+    </ol>
+
+    <li>Tabla HistorialMedico</li>
+    <ol>
+        <li>
+            Médico Veterinario:
+        </li>
+        <ul>
+            <li>
+                Registrar un tratamiento: Ingresar detalles sobre tratamientos realizados,
+                incluyendo el tipo de tratamiento, duración, y gastos asociados (gasto de consulta y medicamento).
+            </li>
+            <li>
+                Actualizar historial médico: Modificar registros de tratamientos anteriores,
+                si se requiere ajustar información o costos.
+            </li>
+        </ul>
+    </ol>
+
+    <li>Tabla Veterinarios</li>
+    <ol>
+        <li>
+            Dueño:
+        </li>
+        <ul>
+            <li>
+                Consultar información de veterinarios: Visualizar los registros de
+                veterinarios para conocer quiénes están disponibles y sus datos de contacto.
+            </li>
+        </ul>
+        <li>
+            Médico Veterinario:
+        </li>
+        <ul>
+            <li>
+                Actualizar información personal: Modificar su propio registro, incluyendo
+                nombre, teléfono y email, si tiene permisos para hacerlo.
+            </li>
+        </ul>
+    </ol>
+
+
     <h1>Código SQL para construir las tablas con las llaves foraneas y su función</h1>
     <h1>Registros en las Tablas de la Base de Datos</h1>
 
