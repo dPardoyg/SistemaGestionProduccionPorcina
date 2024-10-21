@@ -12,29 +12,29 @@
     <img src="./../images/diseñoBDD.png" alt="" width="600">
 
     <h2>Normalización de la Base de Datos</h2>
-    <p>La normalización es un proceso que organiza los datos en una 
-        base de datos para reducir la redundancia y mejorar la integridad. 
+    <p>La normalización es un proceso que organiza los datos en una
+        base de datos para reducir la redundancia y mejorar la integridad.
         Las primeras tres formas normales son fundamentales para lograr esto.
 
-        <ol>
+        
             <ul>Primera Forma Normal (1NF)</ul>
-        </ol>
+        <ol>
         <ul>
             <li>
                 Definición:
-                Una tabla está en 1NF si todos los atributos contienen 
-                    valores atómicos, es decir, no se permiten conjuntos de valores o 
+                Una tabla está en 1NF si todos los atributos contienen
+                    valores atómicos, es decir, no se permiten conjuntos de valores o
                     listas, y cada columna debe contener un solo valor.
             </li>
             <li>Ejemplo en la Tabla Veterinarios:
-                Cada veterinario tiene un único Nombre, Telefono y Email. 
+                Cada veterinario tiene un único Nombre, Telefono y Email.
                 No se permiten múltiples teléfonos o correos en una sola fila.
             </li>
         </ul>
-
-        <ol>
-            <ul>Segunda Forma Normal (2NF)</ul>
         </ol>
+
+            <ul>Segunda Forma Normal (2NF)</ul>
+        <ol>
         <ul>
             <li>
                 Definición: Una tabla está en 2NF si está en 1NF y todos los atributos
@@ -51,29 +51,68 @@
                 eso violaría 2NF.
             </li>
         </ul>
+        </ol>
 
         <ul>Tercera Forma Normal (3NF)</ul>
-    </ol>
-    <ul>
-        <li>
-            Definición: Una tabla está en 3NF si está en 2NF y todos los atributos no
-            clave son mutuamente independientes, es decir, no hay dependencias transitivas.
-        </li>
-        <li>Ejemplo en la Tabla HistorialMedico:
-            La clave primaria es Id_HistorialMedico, y todos los demás campos (Id_Diagnostico,
-            Tratamiento, PeriodoTratamiento, GastoConsulta, GastoMedicamento) dependen solo de
-            esta clave.
-        </li>
-        <li>
+        <ol>    
+        <ul>
+            <li>
+                Definición: Una tabla está en 3NF si está en 2NF y todos los atributos no
+                clave son mutuamente independientes, es decir, no hay dependencias transitivas.
+            </li>
+            <li>Ejemplo en la Tabla HistorialMedico:
+                La clave primaria es Id_HistorialMedico, y todos los demás campos (Id_Diagnostico,
+                Tratamiento, PeriodoTratamiento, GastoConsulta, GastoMedicamento) dependen solo de
+                esta clave.
+            </li>
+            <li>
             No debe haber un campo que dependa de otro campo no clave, como un campo que dependa
              de Tratamiento para determinar el GastoConsulta.
-        </li>
-    </ul>
-
+            </li>
+        </ul>
+        </ol>
     </p>
 
 
     <h1>Pertenencia en la arquitectura de la base de datos</h1>
+
+    <h2>Tabla Porcinos</h2>
+    <p>
+        Esta tabla almacena información sobre todos los porcinos, independientemente de su estado de salud.
+        Esto es fundamental para la gestión de la granja, el seguimiento de la producción y la
+        salud y, el manejo financiero.
+    </p>
+    <h3>Campos</h3>
+
+    <h2>Tabla Vacunas</h2>
+    <p>
+        Registra las vacunas administradas a los porcinos, lo que es esencial para el control de
+        enfermedades y la salud general de los animales. La vacunación es un componente clave en la
+        prevención de enfermedades.
+    </p>
+
+    <h2>Tabla Diagnosticos</h2>
+    <p>
+        Registra los diagnósticos realizados a los porcinos, lo que es fundamental para el seguimiento
+        de la salud animal y la administración de tratamientos. Esta tabla permite identificar
+        problemas de salud y su evolución.
+    </p>
+
+    <h2>Tabla veterinario</h2>
+    <p>
+        Esta tabla almacena información vital sobre los veterinarios que atienden a los porcinos.
+        Es esencial para rastrear quién realiza diagnósticos y tratamientos, lo que es crucial para
+        la rendición de cuentas y la gestión de la atención médica.
+        </p>
+
+    <h2>Tabla HistorialMedico</h2>
+    <p>
+        Compila toda la información relacionada con el tratamiento de un porcino, incluidos los gastos
+         asociados. Esto es crucial para la gestión financiera de la atención médica y el seguimiento
+         de la eficacia de los tratamientos.
+    </p>
+
+
     <h1>Funcionalidades de los Usuarios del subsistema</h1>
     <h1>Separación de Responsabilidades por Tabla</h1>
     <h1>Código SQL para construir las tablas con las llaves foraneas y su función</h1>
