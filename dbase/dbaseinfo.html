@@ -8,6 +8,77 @@
 <body>
 
     <a href="./../subsistemas/historialmedico.html">[Historial Medico]</a>
-    <h1>Base de datos</h1>
+    <h1>Diseño de la base de datos del subsistema</h1>
+    <img src="./../images/diseñoBDD.png" alt="" width="600">
+
+    <h2>Normalización de la Base de Datos</h2>
+    <p>La normalización es un proceso que organiza los datos en una 
+        base de datos para reducir la redundancia y mejorar la integridad. 
+        Las primeras tres formas normales son fundamentales para lograr esto.
+
+        <ol>
+            <ul>Primera Forma Normal (1NF)</ul>
+        </ol>
+        <ul>
+            <li>
+                Definición:
+                Una tabla está en 1NF si todos los atributos contienen 
+                    valores atómicos, es decir, no se permiten conjuntos de valores o 
+                    listas, y cada columna debe contener un solo valor.
+            </li>
+            <li>Ejemplo en la Tabla Veterinarios:
+                Cada veterinario tiene un único Nombre, Telefono y Email. 
+                No se permiten múltiples teléfonos o correos en una sola fila.
+            </li>
+        </ul>
+
+        <ol>
+            <ul>Segunda Forma Normal (2NF)</ul>
+        </ol>
+        <ul>
+            <li>
+                Definición: Una tabla está en 2NF si está en 1NF y todos los atributos
+                no clave dependen completamente de la clave primaria. Esto significa
+                que no deben existir dependencias parciales.
+            </li>
+            <li>Ejemplo en la Tabla Diagnosticos:
+                La clave primaria es Id_Diagnostico, y todos los demás campos (Id_Porcinos,
+                Id_Veterinario, Enfermedad, FechaDiagnostico) dependen completamente de esta
+                clave.
+            </li>
+            <li>
+                Si tuviéramos un campo que dependiera solo de Id_Porcinos o Id_Veterinario,
+                eso violaría 2NF.
+            </li>
+        </ul>
+
+        <ul>Tercera Forma Normal (3NF)</ul>
+    </ol>
+    <ul>
+        <li>
+            Definición: Una tabla está en 3NF si está en 2NF y todos los atributos no
+            clave son mutuamente independientes, es decir, no hay dependencias transitivas.
+        </li>
+        <li>Ejemplo en la Tabla HistorialMedico:
+            La clave primaria es Id_HistorialMedico, y todos los demás campos (Id_Diagnostico,
+            Tratamiento, PeriodoTratamiento, GastoConsulta, GastoMedicamento) dependen solo de
+            esta clave.
+        </li>
+        <li>
+            No debe haber un campo que dependa de otro campo no clave, como un campo que dependa
+             de Tratamiento para determinar el GastoConsulta.
+        </li>
+    </ul>
+
+    </p>
+
+
+    <h1>Pertenencia en la arquitectura de la base de datos</h1>
+    <h1>Funcionalidades de los Usuarios del subsistema</h1>
+    <h1>Separación de Responsabilidades por Tabla</h1>
+    <h1>Código SQL para construir las tablas con las llaves foraneas y su función</h1>
+    <h1>Registros en las Tablas de la Base de Datos</h1>
+
+
 </body>
 </html>
