@@ -409,9 +409,169 @@
     </ol>
 
 
-    <h1>Código SQL para construir las tablas con las llaves foraneas y su función</h1>
-    <h1>Registros en las Tablas de la Base de Datos</h1>
+    <h1>Código SQL para construir las tablas con las llaves foraneas</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .info-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            overflow-x: auto;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        pre {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Mantiene el formato de los saltos de línea */
+            word-wrap: break-word; /* Permite que las palabras largas se dividan */
+        }
+    </style>
+</head>
+<body>
 
+<div class="info-box">
+    <h2>Script SQL para la Base de Datos</h2>
+    <pre>
+-- Crear base de datos
+CREATE DATABASE HMedico
+USE HMedico
+
+-- Crear tabla Veterinarios
+CREATE TABLE Veterinarios (
+    Id_Veterinario INT PRIMARY KEY IDENTITY(1,1),
+    Nombre VARCHAR(100) NOT NULL,
+    Telefono VARCHAR(15) NOT NULL,
+    Email VARCHAR(100) NOT NULL
+);
+
+-- Crear tabla Porcinos
+CREATE TABLE Porcinos (
+    Id_Porcinos INT PRIMARY KEY IDENTITY(1,1),
+    FechaIngreso DATETIME NOT NULL,
+    FechaEgreso DATETIME NULL,
+    FechaDeceso DATETIME NULL,
+    Peso DECIMAL(10, 2) NOT NULL,
+    Edad INT NOT NULL,
+    Raza VARCHAR(50) NOT NULL,
+    PrecioCompra DECIMAL(10, 2) NOT NULL,
+    PrecioVenta DECIMAL(10, 2) NOT NULL
+);
+
+-- Crear tabla Diagnosticos
+CREATE TABLE Diagnosticos (
+    Id_Diagnostico INT PRIMARY KEY IDENTITY(1,1),
+    Id_Porcinos INT NOT NULL,
+    Id_Veterinario INT NOT NULL,
+    Enfermedad VARCHAR(100) NOT NULL,
+    FechaDiagnostico DATETIME NOT NULL,
+    FOREIGN KEY (Id_Porcinos) REFERENCES Porcinos(Id_Porcinos),
+    FOREIGN KEY (Id_Veterinario) REFERENCES Veterinarios(Id_Veterinario)
+);
+
+-- Crear tabla HistorialMedico
+CREATE TABLE HistorialMedico (
+    Id_HistorialMedico INT PRIMARY KEY IDENTITY(1,1),
+    Id_Diagnostico INT NOT NULL,
+    Tratamiento VARCHAR(100) NOT NULL,
+    PeriodoTratamiento INT NOT NULL,
+    GastoConsulta DECIMAL(10, 2) NOT NULL,
+    GastoMedicamento DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (Id_Diagnostico) REFERENCES Diagnosticos(Id_Diagnostico)
+);
+
+-- Crear tabla Vacunas
+CREATE TABLE Vacunas (
+    Id_Vacunas INT PRIMARY KEY IDENTITY(1,1),
+    Id_Porcinos INT NOT NULL,
+    NombreVacuna VARCHAR(100) NOT NULL,
+    FechaVacunacion DATETIME NOT NULL,
+    FOREIGN KEY (Id_Porcinos) REFERENCES Porcinos(Id_Porcinos)
+);
+    </pre>
+</div>
+
+</body>
+    <h1>Registros en las Tablas de la Base de Datos</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .info-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            overflow-x: auto;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        pre {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Mantiene el formato de los saltos de línea */
+            word-wrap: break-word; /* Permite que las palabras largas se dividan */
+        }
+    </style>
+</head>
+<body>
+
+<div class="info-box">
+    <h2>Script SQL para Inserción de Registros en la base de datos</h2>
+    <pre>
+--REGISTROS
+-- Insertar registros en Veterinarios
+INSERT INTO Veterinarios (Nombre, Telefono, Email) VALUES
+('Dr. Juan Pérez', '555-0101', 'juan.perez@example.com'),
+('Dra. Ana Gómez', '555-0102', 'ana.gomez@example.com'),
+('Dr. Luis Martínez', '555-0103', 'luis.martinez@example.com');
+
+-- Insertar registros en Porcinos
+INSERT INTO Porcinos (FechaIngreso, FechaEgreso, FechaDeceso, Peso, Edad, Raza, PrecioCompra, PrecioVenta) VALUES
+('2023-01-01', NULL, NULL, 100.50, 6, 'Yorkshire', 200.00, 300.00),
+('2023-01-05', NULL, NULL, 95.00, 5, 'Berkshire', 190.00, 280.00),
+('2023-01-10', NULL, NULL, 110.00, 7, 'Duroc', 210.00, 310.00);
+
+-- Insertar registros en Diagnosticos
+INSERT INTO Diagnosticos (Id_Porcinos, Id_Veterinario, Enfermedad, FechaDiagnostico) VALUES
+(1, 1, 'Infección Respiratoria', '15-01-2023'),
+(2, 2, 'Parásitos', '21-01-2023'),
+(3, 3, 'Fiebre Porcina', '25-01-2023');
+
+-- Insertar registros en HistorialMedico
+INSERT INTO HistorialMedico (Id_Diagnostico, Tratamiento, PeriodoTratamiento, GastoConsulta, GastoMedicamento) VALUES
+(1, 'Antibióticos', 7, 50.00, 20.00),
+(2, 'Desparasitante', 14, 30.00, 15.00),
+(3, 'Vacunación', 3, 40.00, 10.00);
+
+-- Insertar registros en Vacunas
+INSERT INTO Vacunas (Id_Porcinos, NombreVacuna, FechaVacunacion) VALUES
+(1, 'Vacuna A', '18-01-2023'),
+(2, 'Vacuna B', '22-01-2023'),
+(3, 'Vacuna C', '28-01-2023');
+    </pre>
+</div>
 
 </body>
 </html>
