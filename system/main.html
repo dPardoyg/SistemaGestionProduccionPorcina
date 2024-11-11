@@ -1,0 +1,63 @@
+@model PUERCOSCRUD.Models.Porcino
+
+@{
+    ViewData["Title"] = "Crear Nuevo Porcino";
+}
+
+<a href="./../subsistemas/historialmedico.html">[Historial Medico]</a>
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Crear_Porcino" method="post">
+    <div class="form-group">
+        <label asp-for="FechaIngreso"></label>
+        <input asp-for="FechaIngreso" class="form-control" />
+        <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaEgreso"></label>
+        <input asp-for="FechaEgreso" class="form-control" />
+        <span asp-validation-for="FechaEgreso" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaDeceso"></label>
+        <input asp-for="FechaDeceso" class="form-control" />
+        <span asp-validation-for="FechaDeceso" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Peso"></label>
+        <input asp-for="Peso" class="form-control" />
+        <span asp-validation-for="Peso" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Edad"></label>
+        <input asp-for="Edad" class="form-control" />
+        <span asp-validation-for="Edad" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Raza"></label>
+        <input asp-for="Raza" class="form-control" />
+        <span asp-validation-for="Raza" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PrecioCompra"></label>
+        <input asp-for="PrecioCompra" class="form-control" />
+        <span asp-validation-for="PrecioCompra" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PrecioVenta"></label>
+        <input asp-for="PrecioVenta" class="form-control" />
+        <span asp-validation-for="PrecioVenta" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
+
+<a asp-action="Porcino_Detalle" class="btn btn-secondary">Regresar a la lista</a>
